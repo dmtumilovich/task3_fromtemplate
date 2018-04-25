@@ -1,4 +1,4 @@
-package by.tc.task01.dao.impl;
+package by.tc.task01.dao;
 
 import by.tc.task01.entity.criteria.Criteria;
 
@@ -17,7 +17,6 @@ public class ApplianceMatcher<E> {
         this.criteria = criteria;
     }
 
-    //подобрать норм названия методам
     public boolean checkCategoryAndCriteria() {
         if( !checkCategory() ) {
             return false;
@@ -46,6 +45,8 @@ public class ApplianceMatcher<E> {
     }
 
     private boolean checkCategory() {
+        if(criteria.getGroupSearchName() == null) //если не указана категория - ведется поиск по всем
+            return true;
         String category = criteria.getGroupSearchName().getSimpleName();
         Matcher matcher = Pattern.compile(category).matcher(currentLine);
         return matcher.find();

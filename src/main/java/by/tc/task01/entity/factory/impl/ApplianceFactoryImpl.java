@@ -6,8 +6,8 @@ import by.tc.task01.entity.factory.ApplianceFactory;
 public class ApplianceFactoryImpl implements ApplianceFactory {
 
     @Override
-    public Appliance createAppliance(Class type) {
-        switch (type.getSimpleName()) {
+    public Appliance createAppliance(String type) {
+        switch (type) {
             case "Laptop":
                 return new Laptop();
             case "Oven":

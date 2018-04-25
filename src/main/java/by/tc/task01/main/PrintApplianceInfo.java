@@ -8,8 +8,24 @@ import java.util.Map;
 import java.util.Set;
 
 public class PrintApplianceInfo {
-	
+
+	public static void print(List<Appliance> appliances) {
+		if(appliances.size() == 0) {
+			System.out.println("No matches!\n");
+			return;
+		}
+		for(Appliance appliance : appliances) {
+			print(appliance);
+		}
+		System.out.println();
+	}
+
 	public static void print(Appliance appliance) {
+		String applianceInfo = makeString(appliance);
+		System.out.println(applianceInfo);
+	}
+
+	public static String makeString(Appliance appliance) {
 		StringBuilder builder = new StringBuilder();
 
 		String category = appliance.getCategory();
@@ -24,15 +40,7 @@ public class PrintApplianceInfo {
 			Object optionValue = entry.getValue();
 			builder.append(optionKey).append("=").append(optionValue).append("  ");
 		}
-
-		System.out.println(builder.toString());
-	}
-
-
-	public static void print(List<Appliance> appliances) {
-		for(Appliance appliance : appliances) {
-			print(appliance);
-		}
+		return builder.toString();
 	}
 
 }

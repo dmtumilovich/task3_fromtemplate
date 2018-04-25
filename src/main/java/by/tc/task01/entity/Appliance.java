@@ -1,6 +1,5 @@
 package by.tc.task01.entity;
 
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -16,7 +15,7 @@ public abstract class Appliance {
     }
 
 	public void setOptions(Map<String, Object> options) {
-	    this.options = options;
+	    this.options = new LinkedHashMap<>(options);
     }
 
 }

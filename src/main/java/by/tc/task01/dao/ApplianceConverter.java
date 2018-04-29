@@ -26,8 +26,8 @@ public class ApplianceConverter {
         ApplianceFactory applianceFactory = new ApplianceFactoryImpl();
 
         String category = categoryFromString(line);
-        Appliance appliance = applianceFactory.createAppliance(category);
-        appliance.setOptions( optionsFromString(line) );
+        Map<String, Object> options = optionsFromString(line);
+        Appliance appliance = applianceFactory.createAppliance(category, options);
 
         return appliance;
     }

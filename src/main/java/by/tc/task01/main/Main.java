@@ -3,7 +3,9 @@ package by.tc.task01.main;
 import static by.tc.task01.entity.criteria.SearchCriteria.*;
 
 import by.tc.task01.entity.Appliance;
+import by.tc.task01.entity.Laptop;
 import by.tc.task01.entity.criteria.Criteria;
+import by.tc.task01.entity.criteria.SearchCriteria;
 import by.tc.task01.service.ApplianceService;
 import by.tc.task01.service.ServiceFactory;
 
@@ -20,13 +22,13 @@ public class Main {
 
 		//////////////////////////////////////////////////////////////////
 
-		Criteria criteria = new Criteria(null);
-		criteria.add(Oven.CAPACITY, 33);
+		Criteria criteria = new Criteria(Laptop.class);
+		criteria.add(SearchCriteria.Laptop.MEMORY_ROM, 8000);
 		result = service.find(criteria);
 
 		PrintApplianceInfo.print(result);
 
-		//////////////////////////////////////////////////////////////////
+		////////////////////////////////////////////////////////////////
 
 		Criteria<Oven> criteriaOven = new Criteria<Oven>(Oven.class);
 		criteriaOven.add(Oven.CAPACITY, 33);
@@ -47,7 +49,7 @@ public class Main {
 		PrintApplianceInfo.print(result);
 
 		//////////////////////////////////////////////////////////////////
-		
+
 		Criteria<TabletPC> criteriaTabletPC = new Criteria<TabletPC>(TabletPC.class);
 		criteriaTabletPC.add(TabletPC.COLOR, "BLUE");
 		criteriaTabletPC.add(TabletPC.DISPLAY_INCHES, 14);

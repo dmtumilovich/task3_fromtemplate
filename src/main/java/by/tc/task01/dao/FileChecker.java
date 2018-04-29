@@ -28,9 +28,7 @@ public class FileChecker {
 
     private <E> boolean checkStringWithCriteria(String string, Criteria<E> criteria) {
         ApplianceMatcher<E> applianceMatcher = new ApplianceMatcher<>(string, criteria);
-        if(applianceMatcher.checkCategoryAndCriteria())
-            return true;
-        return false;
+        return applianceMatcher.checkCategoryAndCriteria();
     }
 
 }
